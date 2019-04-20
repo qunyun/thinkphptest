@@ -2,14 +2,14 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class IndexController extends Controller {
+class AddController extends Controller {
     /**
      * 后台首页
      */
-    public function index(){
+    public function newsAdd(){
         $this->display();
     }
-    public function main(){
+    public function newsList(){
         $this->display();
     }
 
