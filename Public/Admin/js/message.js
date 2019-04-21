@@ -1,6 +1,6 @@
 var $;
 layui.config({
-	base : "__PUBLIC__/js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','layedit'],function(){
     var form = layui.form(),
         layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -33,7 +33,7 @@ layui.config({
     })
 
     //加载数据
-    $.get("__PUBLIC__/json/message.json",function(data){
+    $.get("Public/Admin/json/message.json",function(data){
         var msgHtml = '',msgReply;
         for(var i=0; i<data.length; i++){
             if(data[i].msgReply && data[i].msgReply.length != 0){
@@ -85,7 +85,7 @@ layui.config({
                 });
                 var body = layui.layer.getChildFrame('body', index);
                 //加载回复信息
-                $.get("__PUBLIC__/json/message.json",function(data){
+                $.get("Public/Admin/json/message.json",function(data){
                     var msgReplyHtml = '',msgReply;
                     for(var i=0; i<data.length; i++){
                         if(data[i].msgReply && data[i].msgReply.length != 0){

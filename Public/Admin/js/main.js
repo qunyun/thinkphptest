@@ -1,5 +1,5 @@
 layui.config({
-	base : "/Public/js/"
+	base : "Public/Admin/js/"
 }).use(['form','element','layer','jquery'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -11,7 +11,7 @@ layui.config({
 	})
 
 	//动态获取文章总数和待审核文章数量,最新文章
-	$.get("/Public/json/newsList.json",
+	$.get("/Public/Admin/json/newsList.json",
 		function(data){
 			var waitNews = [];
 			$(".allNews span").text(data.length);  //文章总数
@@ -35,21 +35,21 @@ layui.config({
 	)
 
 	//图片总数
-	$.get("/Public/json/images.json",
+	$.get("../../Public/Admin/json/images.json",
 		function(data){
 			$(".imgAll span").text(data.length);
 		}
 	)
 
 	//用户数
-	$.get("/Public/json/usersList.json",
+	$.get("../../Public/Admin/json/usersList.json",
 		function(data){
 			$(".userAll span").text(data.length);
 		}
 	)
 
 	//新消息
-	$.get("/Public/json/message.json",
+	$.get("../../Public/Admin/json/message.json",
 		function(data){
 			$(".newMessage span").text(data.length);
 		}
@@ -67,7 +67,7 @@ layui.config({
 		fillParameter(systemParameter);
 	}else{
 		$.ajax({
-			url : "/Public/json/systemParameter.json",
+			url : "../../Public/Admin/json/systemParameter.json",
 			type : "get",
 			dataType : "json",
 			success : function(data){

@@ -1,0 +1,57 @@
+	<include file="Common:header"/>
+	<title>后台管理员</title>
+</head>
+<body class="childrenBody">
+	<blockquote class="layui-elem-quote news_search">
+		<div class="layui-inline">
+		    <div class="layui-input-inline">
+		    	<input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
+		    </div>
+		    <a class="layui-btn search_btn">查询</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-normal usersAdd_btn">添加管理员</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+		</div>
+	</blockquote>
+	<div class="layui-form news_list">
+	  	<table class="layui-table">
+		    <thead>
+				<tr>
+					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+					<th>编号</th>
+					<th>登录名</th>
+					<th>管理员角色</th>
+					<th>最近登录时间</th>
+					<th>登录IP</th>
+					<th>登录次数</th>
+					<th>邮箱</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr> 
+		    </thead>
+			<tbody class="users_content">
+				<foreach name="data" item="v">
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></td>
+						<td>{$v.id}</td>
+						<td>{$v.username}</td>
+						<td>{$v.bname}</td>
+						<td>{$v.login_time}</td>
+						<td>{$v.login_ip}</td>
+						<td>{$v.login_num}</td>
+						<td>{$v.email}</td>
+						<td>{$v['active']==1?'启用':'禁用'}</td>
+						<td>禁用 修改 删除</td>
+					</tr>
+				</foreach>
+			</tbody>
+		</table>
+	</div>
+	<div id="page"></div>
+	<script type="text/javascript" src="__PUBLIC__/layui/layui.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/allUsers.js"></script>
+</body>
+</html>

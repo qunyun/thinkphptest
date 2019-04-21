@@ -1,5 +1,5 @@
 layui.config({
-	base : "__PUBLIC__/js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','jquery'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -37,7 +37,7 @@ layui.config({
  		fillData(data);
  	}else{
  		$.ajax({
-			url : "__PUBLIC__/json/systemParameter.json",
+			url : "Public/Admin/json/systemParameter.json",
 			type : "get",
 			dataType : "json",
 			success : function(data){

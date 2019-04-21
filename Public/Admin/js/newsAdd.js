@@ -1,5 +1,5 @@
 layui.config({
-	base : "__PUBLIC__/js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','jquery','layedit','laydate'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,

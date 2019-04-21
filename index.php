@@ -9,6 +9,8 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+//防止中文乱码
+header("Content-Type: text/html;charset=utf-8");
 // 应用入口文件
 
 // 检测PHP环境

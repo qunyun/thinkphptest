@@ -1,45 +1,149 @@
 var navs = [{
 	"title" : "后台首页",
 	"icon" : "icon-computer",
-	"href" : "page/main.html",
+	"href" : "{:U('Admin/Index/main')}",
 	"spread" : false
 },{
-	"title" : "文章列表",
-	"icon" : "icon-text",
-	"href" : "page/news/newsList.html",
-	"spread" : false
+    "title" : "管理员管理",
+    "icon" : "&#xe61c;",
+    "href" : "",
+    "spread" : false,
+    "children" : [
+        {
+            "title" : "管理员列表",
+            "icon" : "&#xe60a;",
+            "href" : "/Admin/Admin/allUsers",
+            "spread" : false
+        },
+        {
+            "title" : "添加管理员",
+            "icon" : "&#xe631;",
+            "href" : "/Admin/Admin/addUser",
+            "spread" : false
+        },
+        {
+            "title" : "角色列表",
+            "icon" : "&#xe60a;",
+            "href" : "/Admin/Admin/allRole",
+            "spread" : false
+        },
+        {
+            "title" : "添加角色",
+            "icon" : "&#xe631;",
+            "href" : "/Admin/Admin/addRole",
+            "spread" : false
+        }
+    ]
 },{
-	"title" : "友情链接",
-	"icon" : "icon-text",
-	"href" : "page/links/linksList.html",
-	"spread" : false
+    "title" : "用户管理",
+    "icon" :  "&#xe61c;",
+    "href" : "",
+    "spread" : false,
+    "children" : [
+        {
+            "title" : "用户列表",
+            "icon" : "&#xe60a;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "用户评论",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        }
+    ]
 },{
-	"title" : "404页面",
-	"icon" : "&#xe61c;",
-	"href" : "page/404.html",
-	"spread" : false
+    "title" : "商品管理",
+    "icon" :  "&#xe61c;",
+    "href" : "",
+    "spread" : false,
+    "children" : [
+        {
+            "title" : "商品列表",
+            "icon" : "&#xe60a;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加商品",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "商品类型列表",
+            "icon" : "&#xe60a;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加商品类型",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        }
+    ]
 },{
-	"title" : "系统基本参数",
-	"icon" : "&#xe631;",
-	"href" : "page/systemParameter/systemParameter.html",
-	"spread" : false
+    "title" : "广告管理",
+    "icon" :  "&#xe61c;",
+    "href" : "",
+    "spread" : false,
+    "children" : [
+        {
+            "title" : "广告列表",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加广告",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "广告类型",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加广告类型",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        }
+    ]
 },{
-	"title" : "二级菜单演示",
-	"icon" : "&#xe61c;",
-	"href" : "",
-	"spread" : false,
-	"children" : [
-		{
-			"title" : "二级菜单1",
-			"icon" : "&#xe631;",
-			"href" : "",
-			"spread" : false
-		},
-		{
-			"title" : "二级菜单2",
-			"icon" : "&#xe631;",
-			"href" : "",
-			"spread" : false
-		}
-	]
+    "title" : "公告管理",
+    "icon" :  "&#xe61c;",
+    "href" : "",
+    "spread" : false,
+    "children" : [
+        {
+            "title" : "公告列表",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加公告",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "公告类型",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        },
+        {
+            "title" : "添加公告类型",
+            "icon" : "&#xe631;",
+            "href" : "",
+            "spread" : false
+        }
+    ]
 }]

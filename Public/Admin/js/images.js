@@ -1,5 +1,5 @@
 layui.config({
-	base : "js/"
+	base : "Public/Admin/js/"
 }).use(['flow','form','layer'],function(){
     var flow = layui.flow,
         form = layui.form(),

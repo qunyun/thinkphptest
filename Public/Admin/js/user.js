@@ -3,7 +3,7 @@ var $form;
 var form;
 var $;
 layui.config({
-	base : "__PUBLIC__/js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','upload','laydate'],function(){
 	form = layui.form();
 	var layer = layer;
@@ -13,7 +13,7 @@ layui.config({
 		laydate = layui.laydate;
         loadProvince();
         layui.upload({
-        	url : "__PUBLIC__/json/userface.json",
+        	url : "Public/Admin/json/userface.json",
         	success: function(res){
         		var num = parseInt(4*Math.random());  //生成0-4的随机数
         		//随机显示一个头像信息
@@ -45,7 +45,7 @@ layui.config({
         if(window.sessionStorage.getItem('userFace')){
         	$("#userFace").attr("src",window.sessionStorage.getItem('userFace'));
         }else{
-        	$("#userFace").attr("src","__PUBLIC__/images/face.jpg");
+        	$("#userFace").attr("src","Public/Admin/images/face.jpg");
         }
 
         //提交个人资料

@@ -1,6 +1,6 @@
 var $;
 layui.config({
-	base : "js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','jquery'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -13,55 +13,32 @@ layui.config({
 	 	if(window.sessionStorage.getItem("addUser")){
 	 		addUserArray = JSON.parse(window.sessionStorage.getItem("addUser"));
 	 	}
-
-	 	var userStatus,userGrade,userEndTime;
-	 	//会员等级
-	 	if(data.field.userGrade == '0'){
- 			userGrade = "注册会员";
- 		}else if(data.field.userGrade == '1'){
- 			userGrade = "中级会员";
- 		}else if(data.field.userGrade == '2'){
- 			userGrade = "高级会员";
- 		}else if(data.field.userGrade == '3'){
- 			userGrade = "超级会员";
- 		}
- 		//会员状态
- 		if(data.field.userStatus == '0'){
- 			userStatus = "正常使用";
- 		}else if(data.field.userStatus == '1'){
- 			userStatus = "限制用户";
- 		}
-
- 		addUser = '{"usersId":"'+ new Date().getTime() +'",';//id
- 		addUser += '"userName":"'+ $(".userName").val() +'",';  //登录名
- 		addUser += '"userEmail":"'+ $(".userEmail").val() +'",';	 //邮箱
- 		addUser += '"userSex":"'+ data.field.sex +'",'; //性别
- 		addUser += '"userStatus":"'+ userStatus +'",'; //会员等级
- 		addUser += '"userGrade":"'+ userGrade +'",'; //会员状态
- 		addUser += '"userEndTime":"'+ formatTime(new Date()) +'"}';  //登录时间
- 		console.log(addUser);
- 		addUserArray.unshift(JSON.parse(addUser));
- 		window.sessionStorage.setItem("addUser",JSON.stringify(addUserArray));
- 		//弹出loading
- 		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
-        setTimeout(function(){
-            top.layer.close(index);
-			top.layer.msg("用户添加成功！");
- 			layer.closeAll("iframe");
-	 		//刷新父页面
-	 		parent.location.reload();
-        },2000);
+	 	//获取表单信息
+ 		username=$(".userName").val() ;  //登录名
+ 		password=$(".password").val(); //密码
+        repassword=$(".repassword").val(); //确认密码
+		//用户权限
+        rolename = new Array();
+        $("input[type=checkbox]").each(function(i){
+            if($(this).prop('checked') == true){
+                rolename .push($(this).attr('name'));
+            }
+        });
+		//console.log(rolename);
+		//密码长度验证??????
+		if(password==repassword){
+            $.post('addUser',{'username':username,'password':password,'rolename':rolename},function(res){
+                if(res==1){
+                    layer.msg("用户名已存在");
+				}else{
+                    layer.msg("用户添加成功！");
+                    //刷新本页面
+                    //location.reload();
+				}
+            })
+        }else{
+            layer.msg("两次输入密码不一致");
+		}
  		return false;
  	})
-	
 })
-
-//格式化时间
-function formatTime(_time){
-    var year = _time.getFullYear();
-    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
-    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
-    var hour = _time.getHours()<10 ? "0"+_time.getHours() : _time.getHours();
-    var minute = _time.getMinutes()<10 ? "0"+_time.getMinutes() : _time.getMinutes();
-    return year+"-"+month+"-"+day+" "+hour+":"+minute;
-}

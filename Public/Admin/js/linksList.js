@@ -1,5 +1,5 @@
 layui.config({
-	base : "__PUBLIC__/js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','jquery','laypage'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -9,7 +9,7 @@ layui.config({
 	//加载页面数据
 	var linksData = '';
 	$.ajax({
-		url : "__PUBLIC__/json/linksList.json",
+		url : "Public/Admin/json/linksList.json",
 		type : "get",
 		dataType : "json",
 		success : function(data){

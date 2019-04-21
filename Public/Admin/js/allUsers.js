@@ -1,5 +1,5 @@
 layui.config({
-	base : "js/"
+	base : "Public/Admin/js/"
 }).use(['form','layer','jquery','laypage'],function(){
 	var form = layui.form(),
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
@@ -7,8 +7,8 @@ layui.config({
 		$ = layui.jquery;
 
 	//加载页面数据
-	var usersData = '';
-	$.get("json/usersList.json", function(data){
+	/*var usersData = '';
+	$.get("../../Public/Admin/json/usersList.json", function(data){
 		usersData = data;
 		if(window.sessionStorage.getItem("addUser")){
 			var addUsers = window.sessionStorage.getItem("addUser");
@@ -16,7 +16,7 @@ layui.config({
 		}
 		//执行加载数据的方法
 		usersList();
-	})
+	})*/
 
 	//查询
 	$(".search_btn").click(function(){
@@ -25,7 +25,7 @@ layui.config({
 			var index = layer.msg('查询中，请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	$.ajax({
-					url : "/Public/json/usersList.json",
+					url : "Public/Admin/json/usersList.json",
 					type : "get",
 					dataType : "json",
 					success : function(data){
@@ -84,14 +84,14 @@ layui.config({
 		}
 	})
 
-	//添加会员
+	//添加管理员
 	$(".usersAdd_btn").click(function(){
 		var index = layui.layer.open({
-			title : "添加会员",
+			title : "添加管理员",
 			type : 2,
 			content : "addUser.html",
 			success : function(layero, index){
-				layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
+				layui.layer.tips('点击此处返回管理员列表', '.layui-layer-setwin .layui-layer-close', {
 					tips: 3
 				});
 			}
